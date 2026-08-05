@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from starlette.requests import Request
 from authlib.integrations.starlette_client import OAuth
-from udemy_course.config import settings
+from udemy_course.config import settings, SECRET_KEY, ALGORITHM, REFRESH_TOKEN_EXPIRE_DAYS, ACCESS_TOKEN_EXPIRE_MINUTES
 
 
 social_router = APIRouter(prefix='/oauth', tags=['Social Auth'])
