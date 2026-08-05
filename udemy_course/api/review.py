@@ -1,9 +1,9 @@
 from fastapi import Depends, HTTPException, APIRouter
 from sqlalchemy.orm import Session
 from typing import List
-from udemy.db.database import get_db
-from udemy.db.models import Review
-from udemy.db.schema import ReviewSchema, ReviewCreateSchema
+from udemy_course.db.database import get_db
+from udemy_course.db.models import Review
+from udemy_course.db.schema import ReviewSchema, ReviewCreateSchema
 
 
 review_router = APIRouter(prefix='/review', tags=['Review'])
