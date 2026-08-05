@@ -1,13 +1,13 @@
 from fastapi import Depends, HTTPException, APIRouter
 from typing import Optional
 from sqlalchemy.orm import Session
-from udemy.db.database import get_db
-from udemy.db.schema import UserProfileRegisterSchema, UserProfileLoginSchema
-from udemy.db.models import UserProfile, RefreshToken
+from udemy_course.db.database import get_db
+from udemy_course.db.schema import UserProfileRegisterSchema, UserProfileLoginSchema
+from udemy_course.db.models import UserProfile, RefreshToken
 from passlib.context import CryptContext
 from datetime import datetime, timedelta, timezone
 from jose import jwt
-from udemy.config import SECRET_KEY, ALGORITHM, REFRESH_TOKEN_EXPIRE_DAYS, ACCESS_TOKEN_EXPIRE_MINUTES
+from udemy_course.config import SECRET_KEY, ALGORITHM, REFRESH_TOKEN_EXPIRE_DAYS, ACCESS_TOKEN_EXPIRE_MINUTES
 
 
 auth_router = APIRouter(prefix='/auth', tags=['Auth'])
