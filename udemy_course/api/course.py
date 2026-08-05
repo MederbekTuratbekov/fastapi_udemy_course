@@ -1,9 +1,9 @@
 from fastapi import Depends, HTTPException, APIRouter
 from sqlalchemy.orm import Session
 from typing import List
-from udemy.db.database import get_db
-from udemy.db.models import Course
-from udemy.db.schema import CourseSchema, CourseCreateSchema
+from udemy_course.db.database import get_db
+from udemy_course.db.models import Course
+from udemy_course.db.schema import CourseSchema, CourseCreateSchema
 
 
 course_router = APIRouter(prefix='/course', tags=['Courses'])
