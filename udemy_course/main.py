@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 import uvicorn
-from udemy.api import category, course, lesson, review, auth, social_auth
-from udemy.admin.setup import setup_admin
+from udemy_course.api import category, course, lesson, review, auth, social_auth
+from udemy_course.admin.setup import setup_admin
 from starlette.middleware.sessions import SessionMiddleware
-from udemy.config import SECRET_KEY
+from udemy_course.config import SECRET_KEY
 
 
 udemy = FastAPI()
