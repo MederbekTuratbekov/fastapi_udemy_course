@@ -45,7 +45,7 @@ async def register(user: UserProfileRegisterSchema, db: Session = Depends(get_db
         age=user.age,
         phone_number=user.phone_number,
         profile_picture=user.profile_picture,
-        password=get_password_hash(user.password)
+        hashed_password=get_password_hash(user.password)
     )
     db.add(db_user)
     db.commit()
@@ -56,7 +56,7 @@ async def register(user: UserProfileRegisterSchema, db: Session = Depends(get_db
 @auth_router.post('/login')
 async def login(form_data: UserProfileLoginSchema, db: Session = Depends(get_db)):
     user = db.query(UserProfile).filter(UserProfile.username == form_data.username).first()
-    if not user or not verify_password(form_data.password, user.password):
+    if not user or not verify_password(form_data.password, user.hashed_password):
         raise HTTPException(status_code=401, detail='Неверный юзернейм или пароль')
     access_token = create_access_token({'sub': user.username})
     refresh_token = create_refresh_token({'sub': user.username})
