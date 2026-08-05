@@ -1,4 +1,4 @@
-from udemy.db.models import UserProfile, Category, Course, Lesson, Review
+from udemy_course.db.models import UserProfile, Category, Course, Lesson, Review
 from sqladmin import ModelView
 
 
