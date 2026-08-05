@@ -16,7 +16,7 @@ class UserProfile(Base):
     phone_number: Mapped[str | None] = mapped_column(String, nullable=True, unique=True)
     age: Mapped[int | None] = mapped_column(Integer, nullable=True)
     profile_picture: Mapped[str | None] = mapped_column(String, nullable=True)
-    password: Mapped[str] = mapped_column(String, nullable=False)
+    hashed_password: Mapped[str] = mapped_column(String, nullable=False)
     created_date: Mapped[datetime] = mapped_column(TIMESTAMP, default=lambda : datetime.now(timezone.utc))
 
     course_author: Mapped[List['Course']] = relationship('Course', back_populates='author', cascade='all, delete-orphan')
